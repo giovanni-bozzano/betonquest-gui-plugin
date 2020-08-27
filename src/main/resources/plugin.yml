@@ -1,0 +1,6 @@
+name: BetonQuestGUI
+version: ${project.version}
+main: com.giovannibozzano.betonquestgui.BetonQuestGui
+api-version: 1.13
+depend:
+  - BetonQuest
