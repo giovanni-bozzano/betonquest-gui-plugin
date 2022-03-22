@@ -6,7 +6,7 @@
 
     <groupId>com.giovannibozzano</groupId>
     <artifactId>betonquestgui-plugin</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
 
     <name>BetonQuestGUI</name>
@@ -56,13 +56,13 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.15.2-R0.1-SNAPSHOT</version>
+            <version>1.18-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>pl.betoncraft</groupId>
             <artifactId>betonquest</artifactId>
-            <version>1.12.0-SNAPSHOT</version>
+            <version>1.12.7</version>
         </dependency>
     </dependencies>
 </project>

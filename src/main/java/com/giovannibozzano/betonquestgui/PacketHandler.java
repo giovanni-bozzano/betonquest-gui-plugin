@@ -3,6 +3,7 @@ package com.giovannibozzano.betonquestgui;
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 import pl.betoncraft.betonquest.conversation.Conversation;
@@ -74,6 +75,15 @@ public class PacketHandler implements PluginMessageListener
         output.writeByte(5);
         output.writeInt(id);
         output.writeUTF(text);
+        player.getPlayer().sendPluginMessage(BetonQuestGui.INSTANCE, "betonquestgui:main", output.toByteArray());
+    }
+
+    public static void sendPacketTargetLocation(Player player, Location  location){
+        ByteArrayDataOutput output = ByteStreams.newDataOutput();
+        output.writeByte(7);
+        output.writeInt(location.getBlockX());
+        output.writeInt(location.getBlockY());
+        output.writeInt(location.getBlockZ());
         player.getPlayer().sendPluginMessage(BetonQuestGui.INSTANCE, "betonquestgui:main", output.toByteArray());
     }
 }

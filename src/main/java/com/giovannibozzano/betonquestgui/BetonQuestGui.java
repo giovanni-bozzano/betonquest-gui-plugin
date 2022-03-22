@@ -13,11 +13,13 @@ public final class BetonQuestGui extends JavaPlugin
     public void onEnable()
     {
         INSTANCE = this;
-        if (this.getServer().getPluginManager().isPluginEnabled("BetonQuest")) {
+        if (this.getServer().getPluginManager().isPluginEnabled("BetonQuest"))
+        {
             this.betonQuest = (BetonQuest) this.getServer().getPluginManager().getPlugin("BetonQuest");
             this.betonQuest.registerConversationIO("gui", GuiConversationIO.class);
             Bukkit.getMessenger().registerOutgoingPluginChannel(this, "betonquestgui:main");
             Bukkit.getMessenger().registerIncomingPluginChannel(this, "betonquestgui:main", new PacketHandler());
+            Bukkit.getPluginManager().registerEvents(new EventListener(), this);
         }
     }
 
