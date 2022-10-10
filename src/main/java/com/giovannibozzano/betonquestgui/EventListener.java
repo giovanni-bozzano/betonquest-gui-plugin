@@ -2,7 +2,7 @@ package com.giovannibozzano.betonquestgui;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import pl.betoncraft.betonquest.api.QuestCompassTargetChangeEvent;
+import org.betonquest.betonquest.api.QuestCompassTargetChangeEvent;
 
 
 public class EventListener implements Listener {
@@ -10,8 +10,8 @@ public class EventListener implements Listener {
     @EventHandler
     public void QuestCompassTargetChangeEventListener(QuestCompassTargetChangeEvent event)
     {
-        if(event.getLocation().getWorld().getPlayers().contains(event.getPlayer())) {
-            PacketHandler.sendPacketTargetLocation(event.getPlayer(), event.getLocation());
+        if(event.getLocation().getWorld() == event.getProfile().getOnlineProfile().getOnlinePlayer().getWorld()) {
+            PacketHandler.sendPacketTargetLocation(event.getProfile().getOnlineProfile().getOnlinePlayer(), event.getLocation());
         }
     }
 }

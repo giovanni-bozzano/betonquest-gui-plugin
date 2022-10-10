@@ -2,7 +2,7 @@ package com.giovannibozzano.betonquestgui;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-import pl.betoncraft.betonquest.BetonQuest;
+import org.betonquest.betonquest.BetonQuest;
 
 public final class BetonQuestGui extends JavaPlugin
 {

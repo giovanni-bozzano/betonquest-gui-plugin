@@ -1,13 +1,13 @@
 package com.giovannibozzano.betonquestgui;
 
+import org.betonquest.betonquest.api.profiles.Profile;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
-import pl.betoncraft.betonquest.conversation.Conversation;
-import pl.betoncraft.betonquest.conversation.ConversationIO;
-import pl.betoncraft.betonquest.utils.PlayerConverter;
+import org.betonquest.betonquest.conversation.Conversation;
+import org.betonquest.betonquest.conversation.ConversationIO;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,10 +22,10 @@ public class GuiConversationIO implements Listener, ConversationIO
     private String npcName;
     private boolean allowClose = false;
 
-    public GuiConversationIO(Conversation conversation, String playerId)
+    public GuiConversationIO(Conversation conversation, Profile profile)
     {
         this.conversation = conversation;
-        this.player = PlayerConverter.getPlayer(playerId);
+        this.player = profile.getOnlineProfile().getOnlinePlayer();
         PacketHandler.sendPacketCreateGui(this.player);
         Bukkit.getPluginManager().registerEvents(this, BetonQuestGui.INSTANCE.getBetonQuest());
     }

@@ -3,12 +3,12 @@ package com.giovannibozzano.betonquestgui;
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
+import org.betonquest.betonquest.utils.PlayerConverter;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.messaging.PluginMessageListener;
-import pl.betoncraft.betonquest.conversation.Conversation;
-import pl.betoncraft.betonquest.conversation.ConversationIO;
-import pl.betoncraft.betonquest.utils.PlayerConverter;
+import org.betonquest.betonquest.conversation.Conversation;
+import org.betonquest.betonquest.conversation.ConversationIO;
 
 public class PacketHandler implements PluginMessageListener
 {
@@ -36,28 +36,28 @@ public class PacketHandler implements PluginMessageListener
     {
         ByteArrayDataOutput output = ByteStreams.newDataOutput();
         output.writeByte(0);
-        player.getPlayer().sendPluginMessage(BetonQuestGui.INSTANCE, "betonquestgui:main", output.toByteArray());
+        player.sendPluginMessage(BetonQuestGui.INSTANCE, "betonquestgui:main", output.toByteArray());
     }
 
     public static void sendPacketOpenGui(Player player)
     {
         ByteArrayDataOutput output = ByteStreams.newDataOutput();
         output.writeByte(1);
-        player.getPlayer().sendPluginMessage(BetonQuestGui.INSTANCE, "betonquestgui:main", output.toByteArray());
+        player.sendPluginMessage(BetonQuestGui.INSTANCE, "betonquestgui:main", output.toByteArray());
     }
 
     public static void sendPacketCloseGui(Player player)
     {
         ByteArrayDataOutput output = ByteStreams.newDataOutput();
         output.writeByte(2);
-        player.getPlayer().sendPluginMessage(BetonQuestGui.INSTANCE, "betonquestgui:main", output.toByteArray());
+        player.sendPluginMessage(BetonQuestGui.INSTANCE, "betonquestgui:main", output.toByteArray());
     }
 
     public static void sendPacketAllowCloseGui(Player player)
     {
         ByteArrayDataOutput output = ByteStreams.newDataOutput();
         output.writeByte(3);
-        player.getPlayer().sendPluginMessage(BetonQuestGui.INSTANCE, "betonquestgui:main", output.toByteArray());
+        player.sendPluginMessage(BetonQuestGui.INSTANCE, "betonquestgui:main", output.toByteArray());
     }
 
     public static void sendPacketNpcDialog(Player player, String npcName, String text)
@@ -66,7 +66,7 @@ public class PacketHandler implements PluginMessageListener
         output.writeByte(4);
         output.writeUTF(npcName);
         output.writeUTF(text);
-        player.getPlayer().sendPluginMessage(BetonQuestGui.INSTANCE, "betonquestgui:main", output.toByteArray());
+        player.sendPluginMessage(BetonQuestGui.INSTANCE, "betonquestgui:main", output.toByteArray());
     }
 
     public static void sendPacketPlayerChoice(Player player, int id, String text)
@@ -75,7 +75,7 @@ public class PacketHandler implements PluginMessageListener
         output.writeByte(5);
         output.writeInt(id);
         output.writeUTF(text);
-        player.getPlayer().sendPluginMessage(BetonQuestGui.INSTANCE, "betonquestgui:main", output.toByteArray());
+        player.sendPluginMessage(BetonQuestGui.INSTANCE, "betonquestgui:main", output.toByteArray());
     }
 
     public static void sendPacketTargetLocation(Player player, Location  location){
@@ -84,6 +84,6 @@ public class PacketHandler implements PluginMessageListener
         output.writeInt(location.getBlockX());
         output.writeInt(location.getBlockY());
         output.writeInt(location.getBlockZ());
-        player.getPlayer().sendPluginMessage(BetonQuestGui.INSTANCE, "betonquestgui:main", output.toByteArray());
+        player.sendPluginMessage(BetonQuestGui.INSTANCE, "betonquestgui:main", output.toByteArray());
     }
 }
